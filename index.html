@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+  <title>backbone</title>
+</head>
+
+<body>
+  <div id="routes"></div>
+  <div id="directions"></div>  
+  <div id="stops"></div> 
+  <div id="times"></div>
+ <script id="routeTemplate" type="text/template">
+   <div class="routes">
+      <div class="info">
+        <div class="description" id="<%= Route%>"><b>Description: </b><%= Description %></div>
+        <div class="provideId"><b>Provider ID: </b><%= ProviderID %></div>
+        <div class="route"><b>Route: </b><%= Route %></div>
+		<br/>
+      </div>
+  </div>
+ </script>
+ 
+ <script id="directionTemplate" type="text/template">
+   <div class="directions">
+      <div class="info">
+        <div id="<%= Value%>"><b>Direction: </b><%= Text %></div>
+		<br/>
+      </div>
+  </div>
+ </script>
+ <script id="stopTemplate" type="text/template">
+   <div class="stops">
+      <div class="info">
+        <div id="<%= Value%>"><b>Stop: </b><%= Text %></div>
+		<br/>
+      </div>
+  </div>
+ </script>
+ <script id="timeTemplate" type="text/template">
+   <div class="times">
+      <div class="info">
+        <div id="<%= Actual%>"><b>Actual: </b><%= Actual %></div>
+		<div id="<%= DepartureText%>"><b>Arrives: </b><%= DepartureText %></div>
+		<br/>
+      </div>
+  </div>
+ </script>
+
+
+
+  <script src="js/libs/jquery.js"></script>
+  <script src="js/libs/underscore.js"></script>
+  <script src="js/libs/backbone.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>
