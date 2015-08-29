@@ -1,4 +1,4 @@
-//VIEWS
+//VIEWS FROM THE 6
 var app = app || {};
 	app.RouteView = Backbone.View.extend({
 	
@@ -19,7 +19,7 @@ var app = app || {};
 	   renderClick: function(event){
 			var self = this;
 			var id = event.target.id;
-			if(id.match(/^\d{3}$/)){ //id will match route. if id is not 3 digits then dont execute code.
+			if(id.match(/^\d{3}$/)){ //regex to match route as id.
 				directions = new app.Directions({routeNumber : id});
 				directions.fetch({
 					success: function() {
@@ -29,7 +29,7 @@ var app = app || {};
 								directionView.render(directions);
 							},
 					error: function(){
-								console.log('There was some error in loading and processing the JSON file in renderClick');
+								console.log('There was some error in loading and processing the JSON file');
 							}
 				
 					})
@@ -75,7 +75,7 @@ var app = app || {};
 			var self = this;
 			var id = event.target.id;
 			var theRouteNumber = directions.getRouteNumber();
-			if(id.match(/^[1-4]$/)){ //id will match direction. if id is not a single digit between 1-4 then dont execute.
+			if(id.match(/^[1-4]$/)){ //regex to match direction as id.
 				stops = new app.Stops({routeNumber: theRouteNumber, direction: id});
 				stops.fetch({
 					success: function() {
@@ -85,7 +85,7 @@ var app = app || {};
 								stopView.render(stops);
 							},
 					error: function(){
-								console.log('There was some error in loading and processing the JSON file in renderClick');
+								console.log('There was some error in loading and processing the JSON file');
 							}
 					})
 			}
@@ -162,7 +162,7 @@ var app = app || {};
 			var id = event.target.id;
 			var theRouteNumber = stops.getRouteNumber();
 			var theDirection = stops.getDirection();
-			if(id.match(/^[A-Z0-9]{4}$/)){ //id will match stopId. If not 4 capital alpha characters don't execute.
+			if(id.match(/^[A-Z0-9]{4}$/)){ //regex to match stopId as id.
 				times = new app.Times({routeNumber: stops.getRouteNumber(), direction: stops.getDirection(), stopId: id});
 				times.fetch({
 					success: function() {
@@ -173,7 +173,7 @@ var app = app || {};
 					
 							},
 					error: function(){
-								console.log('There was some error in loading and processing the JSON file in stopView.renderClick()');
+								console.log('There was some error in loading and processing the JSON file');
 							}
 					})
 			}
@@ -190,7 +190,7 @@ var app = app || {};
 								directionView.render(directions);
 							},
 					error: function(){
-								console.log('There was some error in loading and processing the JSON file in stopView.renderBack()');
+								console.log('There was some error in loading and processing the JSON file');
 							}
 				
 					})		
@@ -263,7 +263,7 @@ var app = app || {};
 								stopView.render(stops);
 							},
 					error: function(){
-								console.log('There was some error in loading and processing the JSON file in stopView.renderBack()');
+								console.log('There was some error in loading and processing the JSON file');
 							}
 				
 					})		
