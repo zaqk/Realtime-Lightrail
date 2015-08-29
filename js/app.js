@@ -1,7 +1,3 @@
-//$(function(){
-
-	////init	
-
 var app = app || {};
 
 	// Initiate the router
@@ -67,16 +63,3 @@ var app = app || {};
 	// Start Backbone history a necessary step for bookmarkable URL's
 
 	Backbone.history.start();
-	
-	
-	
-	
-	
-
-	
-	
-	
-	
-
-
-//});
