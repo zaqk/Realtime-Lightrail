@@ -4,12 +4,12 @@ var app = app || {};
 		model : app.Route,
 		url:"http://svc.metrotransit.org/NexTrip/Routes?format=json",
 		getLightRailRoutes: function () {
-        var filtered = this.filter(function (route) {
+        		var filtered = this.filter(function (route) {
 			var routeNumber = route.get("Route");
-            return routeNumber === "901" || routeNumber === "902" || routeNumber === "903";
-        });
-        return new app.Routes(filtered);
-    }
+            		return routeNumber === "901" || routeNumber === "902" || routeNumber === "903";
+        		});
+		return new app.Routes(filtered);
+    		}
 	});
 	
 	 app.Directions = Backbone.Collection.extend({
