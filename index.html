@@ -2,23 +2,42 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-  <title>backbone</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1"><!--mobile centric-->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"><!--noscrolling-->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/bootstrap-theme.min.css" rel="stylesheet">
+	<link href="css/normalize.css" rel="stylesheet">
+	<link href="css/app.css" rel="stylesheet">
+  <title>Realtime Light Rail</title>
 </head>
 
 <body>
-  <div id="routes"></div>
-  <div id="directions"></div>  
-  <div id="stops"></div> 
-  <div id="times"></div>
- <script id="routeTemplate" type="text/template">
-   <div class="routes">
-      <div class="info">
-        <div class="description" id="<%= Route%>"><b>Description: </b><%= Description %></div>
-        <div class="provideId"><b>Provider ID: </b><%= ProviderID %></div>
-        <div class="route"><b>Route: </b><%= Route %></div>
-		<br/>
+<div class="header" style=""id="content" tabindex="-1">
+      <div class="container">
+        <h2>Realtime Minneapolis Light Rail</h2>
+        <p>View real-time arrivals for all Green Line, Blue Line, and Red Line trains in Minneapolis/St.Paul</p>
+		<p style="font-size: 10px;">Note: click on the text to continue. For example, click "METRO Blue Line". Still working on navigation functionality</p>
+		<!-- Still working on the navigation functionality-->
       </div>
+    </div>
+  <div class="container-fluid">
+    <div id="left-container" class="">left</div>
+    <div id="right-container" class="">right</div>
+    <div id="main-container" class="jumbotron">
+      <div id="routes"></div>
+      <div id="directions"></div>  
+      <div id="stops"></div> 
+      <div id="times"></div>
+    </div>
   </div>
+ <script id="routeTemplate" type="text/template">
+   <button id="<%= Route%>" type="button" class="routes route-button btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
+        <div class="info">
+          <div class="description"><%= Description %></div>
+        </div>
+  </button>
+   <br/>
+   <br/>
  </script>
  
  <script id="directionTemplate" type="text/template">
@@ -40,7 +59,7 @@
  <script id="timeTemplate" type="text/template">
    <div class="times">
       <div class="info">
-        <div id="<%= Actual%>"><b>Actual: </b><%= Actual %></div>
+        <div id="<%= Actual%>"><b>Actual Live Data: </b><%= Actual %></div>
 		<div id="<%= DepartureText%>"><b>Arrives: </b><%= DepartureText %></div>
 		<br/>
       </div>
@@ -57,6 +76,7 @@
 
   </script>
   <script src="js/libs/jquery.js"></script>
+  <script src="js/libs/bootstrap.min.js"></script>
   <script src="js/libs/underscore.js"></script>
   <script src="js/libs/backbone.js"></script>
   <script src="js/router.js"></script>

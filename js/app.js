@@ -46,7 +46,6 @@ var app = app || {};
 	});
 
 	appRouter.on('route:defaultRoute', function(actions) {
-		console.log(actions);
 		var allRoutes = new app.Routes();
 	
 		allRoutes.fetch({

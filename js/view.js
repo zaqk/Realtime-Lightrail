@@ -18,7 +18,7 @@ var app = app || {};
 	   },
 	   renderClick: function(event){
 			var self = this;
-			var id = event.target.id;
+			var id = event.currentTarget.id;
 			if(id.match(/^\d{3}$/)){ //regex to match route as id.
 				directions = new app.Directions({routeNumber : id});
 				directions.fetch({
@@ -47,7 +47,7 @@ var app = app || {};
 			this.remove();  
 			Backbone.View.prototype.remove.call(this);
 			
-			$( "body").prepend(routesElement);
+			$( "#main-container").prepend(routesElement);
 
 		}
 	});
@@ -133,7 +133,7 @@ var app = app || {};
 			this.remove();  
 			Backbone.View.prototype.remove.call(this);
 			
-			$( "body").prepend( directionsElement );
+			$( "#main-container").prepend( directionsElement );
 
 		}	   
 	});
@@ -162,7 +162,7 @@ var app = app || {};
 			var id = event.target.id;
 			var theRouteNumber = stops.getRouteNumber();
 			var theDirection = stops.getDirection();
-			if(id.match(/^[A-Z0-9]{4}$/)){ //regex to match stopId as id.
+			if(id.match(/^[A-Z0-9]{3,4}$/)){ //regex to match stopId as id.
 				times = new app.Times({routeNumber: stops.getRouteNumber(), direction: stops.getDirection(), stopId: id});
 				times.fetch({
 					success: function() {
@@ -223,7 +223,7 @@ var app = app || {};
 			this.remove();  
 			Backbone.View.prototype.remove.call(this);
 			
-			$( "body").prepend( stopsElement );
+			$( "#main-container").prepend( stopsElement );
 
 		}	   	
 	
@@ -296,7 +296,7 @@ var app = app || {};
 			this.remove();  
 			Backbone.View.prototype.remove.call(this);
 			
-			$( "body").prepend( timesElement );
+			$( "#main-container").prepend( timesElement );
 
 		}	   	
 	});
