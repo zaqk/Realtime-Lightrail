@@ -8,50 +8,53 @@
 	<link href="css/bootstrap-theme.min.css" rel="stylesheet">
 	<link href="css/normalize.css" rel="stylesheet">
 	<link href="css/app.css" rel="stylesheet">
+	<link href="css/dashboard.css" rel="stylesheet">
   <title>Realtime Light Rail</title>
 </head>
 
 <body>
-<div class="header" style=""id="content" tabindex="-1">
-      <div class="container">
+<div id="content" class="row header" tabindex="-1">
+      <div class="container col-xs-12 col-sm-12">
         <h2>Realtime Minneapolis Light Rail</h2>
         <p>View real-time arrivals for all Green Line, Blue Line, and Red Line trains in Minneapolis/St.Paul</p>
 		<p style="font-size: 10px;">Note: click on the text to continue. For example, click "METRO Blue Line". Still working on navigation functionality</p>
 		<!-- Still working on the navigation functionality-->
       </div>
     </div>
-  <div class="container-fluid">
-    <div id="left-container" class="">left</div>
-    <div id="right-container" class="">right</div>
-    <div id="main-container" class="jumbotron">
-      <div id="routes"></div>
-      <div id="directions"></div>  
-      <div id="stops"></div> 
-      <div id="times"></div>
+  <div class="container-fluid wrapper row">
+    <div id="left-container" class="col-xs-2 col-sm-3">left</div>
+    <div id="main-container" class="col-xs-3 col-sm-6 jumbotron">
+      <div id="routes" class="row-fluid center-content"></div>
+      <div id="directions" class="center-content"></div>  
+      <div id="stops" class="center-content"></div> 
+      <div id="times" class="center-content"></div>
     </div>
+	<div id="right-container" class="col-xs-2 col-sm-3">right</div>
   </div>
  <script id="routeTemplate" type="text/template">
    <button id="<%= Route%>" type="button" class="routes route-button btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
         <div class="info">
-          <div class="description"><%= Description %></div>
+          <div class="description"><%= Description%></div>
         </div>
   </button>
+
    <br/>
    <br/>
  </script>
  
  <script id="directionTemplate" type="text/template">
-   <div class="directions">
-      <div class="info">
-        <div id="<%= Value%>"><b>Direction: </b><%= Text %></div>
-		<br/>
-      </div>
-  </div>
+    <button id="<%= Value%>" type="button" class="directions route-button btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
+        <div class="info">
+          <div class="description"><%= Text%></div>
+        </div>
+  </button>
+   <br/>
+   <br/>
  </script>
  <script id="stopTemplate" type="text/template">
    <div class="stops">
       <div class="info">
-        <div id="<%= Value%>"><b>Stop: </b><%= Text %></div>
+        <div id="<%= Value%>"><b>Stop: </b><%= Text%></div>
 		<br/>
       </div>
   </div>
@@ -69,11 +72,13 @@
 	//GLOBAL VARS
 	var backButton =  '<button id="back">back</button>';
 	var resetButton = '<button id="reset">reset</button>';
-	var stopsElement = '<div id="stops"></div>';
-	var directionsElement = '<div id="directions"></div>';
-	var routesElement = '<div id="routes"></div>';
-	var timesElement = '<div id="times"></div>'
+	var stopsElement = '<div id="stops" class="center-content"></div>';
+	var directionsElement = '<div id="directions" class="center-content"></div>';
+	var routesElement = '<div id="routes" class="center-content"></div>';
+	var timesElement = '<div id="times" class="center-content"></div>'
+	
 
+	
   </script>
   <script src="js/libs/jquery.js"></script>
   <script src="js/libs/bootstrap.min.js"></script>

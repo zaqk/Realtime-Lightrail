@@ -2,6 +2,14 @@ var app = app || {};
 
 	// Initiate the router
 	appRouter = new app.AppRouter;
+	
+	appRouter.on('route', function (event) {
+	//on every url remove all current content and replace with fresh slate. This fixes a bug with the backbutton.
+		$('#routes').replaceWith(routesElement);
+		$('#directions').replaceWith(directionsElement);
+		$('#stops').replaceWith(stopsElement);
+		$('#times').replaceWith(timesElement);
+	});
 
 	appRouter.on('route:getRoute', function (routeNumber) {
 		directions = new app.Directions({routeNumber : routeNumber});

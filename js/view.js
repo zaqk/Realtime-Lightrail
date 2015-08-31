@@ -73,7 +73,7 @@ var app = app || {};
 	   },
 	   renderClick: function(event){
 			var self = this;
-			var id = event.target.id;
+			var id = event.currentTarget.id;
 			var theRouteNumber = directions.getRouteNumber();
 			if(id.match(/^[1-4]$/)){ //regex to match direction as id.
 				stops = new app.Stops({routeNumber: theRouteNumber, direction: id});
