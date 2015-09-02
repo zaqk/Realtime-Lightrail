@@ -47,7 +47,7 @@ var app = app || {};
 			this.remove();  
 			Backbone.View.prototype.remove.call(this);
 			
-			$( "#main-container").prepend(routesElement);
+			$( "#center").prepend(routesElement);
 
 		}
 	});
@@ -133,7 +133,7 @@ var app = app || {};
 			this.remove();  
 			Backbone.View.prototype.remove.call(this);
 			
-			$( "#main-container").prepend( directionsElement );
+			$( "#center").prepend( directionsElement );
 
 		}	   
 	});
@@ -149,6 +149,7 @@ var app = app || {};
 	         var stopTemplate = this.template(stop.toJSON());
 	         $(this.el).append(stopTemplate);
 	      }, this);
+		  /*$('stopsHead').prepend( '<div>Stops</div>' );*/
 		  $(this.el).append( backButton + resetButton );
 	      return this;
 	   },
@@ -223,7 +224,7 @@ var app = app || {};
 			this.remove();  
 			Backbone.View.prototype.remove.call(this);
 			
-			$( "#main-container").prepend( stopsElement );
+			$( "#center").prepend( stopsElement );
 
 		}	   	
 	
@@ -296,7 +297,7 @@ var app = app || {};
 			this.remove();  
 			Backbone.View.prototype.remove.call(this);
 			
-			$( "#main-container").prepend( timesElement );
+			$( "#center").prepend( timesElement );
 
 		}	   	
 	});
