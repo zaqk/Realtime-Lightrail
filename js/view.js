@@ -1,4 +1,4 @@
-//VIEWS FROM THE 6
+//views from the 6
 var app = app || {};
 	app.RouteView = Backbone.View.extend({
 	
@@ -47,7 +47,7 @@ var app = app || {};
 			this.remove();  
 			Backbone.View.prototype.remove.call(this);
 			
-			$( "#center").prepend(routesElement);
+			$(contentDiv).prepend(routesElement);
 
 		}
 	});
@@ -133,7 +133,7 @@ var app = app || {};
 			this.remove();  
 			Backbone.View.prototype.remove.call(this);
 			
-			$( "#center").prepend( directionsElement );
+			$(contentDiv).prepend( directionsElement );
 
 		}	   
 	});
@@ -160,7 +160,7 @@ var app = app || {};
 	   },
 	   renderClick: function(event){
 			var self = this;
-			var id = event.target.id;
+			var id = event.currentTarget.id;
 			var theRouteNumber = stops.getRouteNumber();
 			var theDirection = stops.getDirection();
 			if(id.match(/^[A-Z0-9]{3,4}$/)){ //regex to match stopId as id.
@@ -224,7 +224,7 @@ var app = app || {};
 			this.remove();  
 			Backbone.View.prototype.remove.call(this);
 			
-			$( "#center").prepend( stopsElement );
+			$(contentDiv).append( stopsElement );
 
 		}	   	
 	
@@ -297,7 +297,7 @@ var app = app || {};
 			this.remove();  
 			Backbone.View.prototype.remove.call(this);
 			
-			$( "#center").prepend( timesElement );
+			$( contentDiv).append( timesElement );
 
 		}	   	
 	});

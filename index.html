@@ -23,52 +23,33 @@
 
 				</div>
 			</div>
+									   
 		
 		
 		</div>
 
         <div id='bodywrap'>
+            <div id='left'></div>
 
-            <div id='left'>left</div>
-
-            <div id='right'>right</div>
+            <div id='right'></div>
 
 			<div id="center">
-			   <div class="row-fluid"><!--routes-->
+			   <div id="the-content" class="row-fluid">
 				 <div id="routes" class="center-content"></div>
-			   
-			   
-			   </div>
-	           <div id="directions" class="center-content"></div>  
-			   <div id="stops" class="center-content">
-			   </div> 
-               <div id="times" class="center-content"></div>
-			
+	             <div id="directions" class="center-content"></div>  
+			     <div id="stops" class="center-content"></div> 
+                 <div id="times" class="center-content"></div>
+
+			  </div>
 			
 			</div>
+
         </div>
 
     </div>
-
-<!--
-<div id="content" class="row header" tabindex="-1">
-      <div class="container col-xs-12 col-sm-12">
-        <h2>Realtime Minneapolis Light Rail</h2>
-        <p>View real-time arrivals for all Green Line, Blue Line, and Red Line trains in Minneapolis/St.Paul</p>
-		<p style="font-size: 10px;">Note: click on the text to continue. For example, click "METRO Blue Line". Still working on navigation functionality</p>
-
-      </div>
-    </div>
-  <div class="container-fluid wrapper row">
-    <div id="left-container" class="col-xs-2 col-sm-3">left</div>
-    <div id="main-container" class="col-xs-3 col-sm-6 jumbotron">
-      <div id="routes" class="row-fluid center-content"></div>
-      <div id="directions" class="center-content"></div>  
-      <div id="stops" class="center-content"></div> 
-      <div id="times" class="center-content"></div>
-    </div>
-	<div id="right-container" class="col-xs-2 col-sm-3">right</div>
-  </div>-->
+	<div id="footer">
+	    <p id="footer-content">Contribute to this site on <a href="https://github.com/zaqk/Realtime-Lightrail">Github</a>.</p>
+	</div>
  <script id="routeTemplate" type="text/template">
    <button id="<%= Route%>" type="button" class="routes route-button btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
         <div class="info">
@@ -81,7 +62,7 @@
  </script>
  
  <script id="directionTemplate" type="text/template">
-    <button id="<%= Value%>" type="button" class="directions route-button btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
+    <button id="<%= Value%>" type="button" class="directions direction-button btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
         <div class="info">
           <div class="description"><%= Text%></div>
         </div>
@@ -89,31 +70,33 @@
    <br/>
    <br/>
  </script>
- <script id="stopTemplate" type="text/template">
-   <div class="stops">
-      <div class="info">
-        <div id="<%= Value%>"><b>Stop: </b><%= Text%></div>
-		<br/>
-      </div>
-  </div>
+  <script id="stopTemplate" type="text/template">
+   <button id = "<%= Value%>" type="button" class="stops stops-button btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
+     <div class="info">
+	   <div class="description"><%= Text%></div>
+	 </div>
+	</button>
+	<br/>
+	<br/>
  </script>
- <script id="timeTemplate" type="text/template">
+  <script id="timeTemplate" type="text/template">
    <div class="times">
       <div class="info">
-        <div id="<%= Actual%>"><b>Actual Live Data: </b><%= Actual %></div>
-		<div id="<%= DepartureText%>"><b>Arrives: </b><%= DepartureText %></div>
+		<div id="<%= Actual%>"><b>Arrives: </b><%= DepartureText %></div>
 		<br/>
       </div>
   </div>
  </script>
  <script>
+
 	//GLOBAL VARS
 	var backButton =  '<button id="back">back</button>';
 	var resetButton = '<button id="reset">reset</button>';
 	var stopsElement = '<div id="stops" class="center-content"></div>';
 	var directionsElement = '<div id="directions" class="center-content"></div>';
 	var routesElement = '<div id="routes" class="center-content"></div>';
-	var timesElement = '<div id="times" class="center-content"></div>'
+	var timesElement = '<div id="times" class="center-content"></div>';
+	var contentDiv = '#the-content';
 	
 
 	
