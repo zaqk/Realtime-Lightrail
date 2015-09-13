@@ -91,6 +91,13 @@ html,body{
 	width:30%;
 }
 
+.true{
+	color:red;
+}
+.false{
+
+}
+
 
 
 @media (max-width:1024px){
